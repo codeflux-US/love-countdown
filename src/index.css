@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 43 100% 95.3%;        /* Cream #FFF8E7 */
+  --foreground: 0 44.4% 7.1%;         /* Deep navy #1a0a0a */
+  --border: 44.2 55.6% 54.3%;         /* Gold */
+  --card: 43 100% 98%;
+  --card-foreground: 0 44.4% 7.1%;
+  --popover: 43 100% 98%;
+  --popover-foreground: 0 44.4% 7.1%;
+  --primary: 0 100% 27.5%;            /* Crimson #8B0000 */
+  --primary-foreground: 43 100% 95.3%;
+  --secondary: 44.2 55.6% 54.3%;     /* Gold #C9A84C */
+  --secondary-foreground: 0 44.4% 7.1%;
+  --muted: 43 30% 90%;
+  --muted-foreground: 0 20% 30%;
+  --accent: 44.2 55.6% 54.3%;
+  --accent-foreground: 0 44.4% 7.1%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 43 100% 95.3%;
+  --input: 44.2 55.6% 54.3%;
+  --ring: 44.2 55.6% 54.3%;
+  --app-font-sans: 'Lato', sans-serif;
+  --app-font-serif: 'Playfair Display', serif;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 0 44.4% 7.1%;
+  --foreground: 43 100% 95.3%;
+  --border: 44.2 55.6% 54.3%;
+  --card: 0 100% 12%;
+  --card-foreground: 43 100% 95.3%;
+  --primary: 44.2 55.6% 54.3%;
+  --primary-foreground: 0 44.4% 7.1%;
+  --secondary: 0 100% 27.5%;
+  --secondary-foreground: 43 100% 95.3%;
+  --muted: 0 50% 20%;
+  --muted-foreground: 43 50% 80%;
+  --accent: 44.2 55.6% 54.3%;
+  --accent-foreground: 0 44.4% 7.1%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 43 100% 95.3%;
+  --input: 44.2 55.6% 54.3%;
+  --ring: 44.2 55.6% 54.3%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply font-sans antialiased bg-background text-foreground; }
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+.sparkle {
+  position: absolute;
+  animation: float-up linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
